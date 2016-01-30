@@ -67,11 +67,11 @@
 #pragma mark GADInterstitialDelegate implementation
 
 - (void)interstitialDidReceiveAd:(GADInterstitial *)ad {
-    ((ViewController *)self.viewController).statusLabel.text = @"isReady";
+    ((ViewController *)self.viewController).statusLabel.text = @"Status: isReady";
 }
 
 - (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error {
-    ((ViewController *)self.viewController).statusLabel.text = @"failed to receive ad";
+    ((ViewController *)self.viewController).statusLabel.text = @"Status: failed to receive ad";
 }
 
 - (void)interstitialWillPresentScreen:(GADInterstitial *)ad {
@@ -81,7 +81,7 @@
 }
 
 - (void)interstitialDidDismissScreen:(GADInterstitial *)ad {
-    ((ViewController *)self.viewController).statusLabel.text = @"loading";
+    ((ViewController *)self.viewController).statusLabel.text = @"Status: loading";
     [self requestAd];
 }
 

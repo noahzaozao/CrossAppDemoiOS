@@ -430,15 +430,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: jerry xiao (F374J4LNBS)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CrossAppDemoiOS/GoogleMobileAds",
 				);
 				INFOPLIST_FILE = CrossAppDemoiOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.addictinggames.CrossAppUnityDemo.CrossAppDemoiOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.addictinggames.stfu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c4c8bf38-8c5e-4a31-94b3-d563038e8203";
 			};
 			name = Debug;
 		};
@@ -446,15 +450,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CrossAppDemoiOS/GoogleMobileAds",
 				);
 				INFOPLIST_FILE = CrossAppDemoiOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.addictinggames.CrossAppUnityDemo.CrossAppDemoiOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.addictinggames.stfu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c4c8bf38-8c5e-4a31-94b3-d563038e8203";
 			};
 			name = Release;
 		};
