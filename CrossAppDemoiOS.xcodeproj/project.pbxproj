@@ -15,6 +15,7 @@
 		4FCB59F21C5C5475005A0A9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FCB59F01C5C5475005A0A9E /* LaunchScreen.storyboard */; };
 		4FCB59FD1C5C5476005A0A9E /* CrossAppDemoiOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCB59FC1C5C5476005A0A9E /* CrossAppDemoiOSTests.m */; };
 		4FCB5A081C5C5476005A0A9E /* CrossAppDemoiOSUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCB5A071C5C5476005A0A9E /* CrossAppDemoiOSUITests.m */; };
+		4FCB5A261C5C561A005A0A9E /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FCB5A201C5C561A005A0A9E /* GoogleMobileAds.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		4FCB5A031C5C5476005A0A9E /* CrossAppDemoiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrossAppDemoiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FCB5A071C5C5476005A0A9E /* CrossAppDemoiOSUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CrossAppDemoiOSUITests.m; sourceTree = "<group>"; };
 		4FCB5A091C5C5476005A0A9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FCB5A201C5C561A005A0A9E /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FCB5A261C5C561A005A0A9E /* GoogleMobileAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +84,7 @@
 		4FCB59D61C5C5475005A0A9E = {
 			isa = PBXGroup;
 			children = (
+				4FCB5A151C5C561A005A0A9E /* GoogleMobileAds */,
 				4FCB59E11C5C5475005A0A9E /* CrossAppDemoiOS */,
 				4FCB59FB1C5C5476005A0A9E /* CrossAppDemoiOSTests */,
 				4FCB5A061C5C5476005A0A9E /* CrossAppDemoiOSUITests */,
@@ -138,6 +142,15 @@
 				4FCB5A091C5C5476005A0A9E /* Info.plist */,
 			);
 			path = CrossAppDemoiOSUITests;
+			sourceTree = "<group>";
+		};
+		4FCB5A151C5C561A005A0A9E /* GoogleMobileAds */ = {
+			isa = PBXGroup;
+			children = (
+				4FCB5A201C5C561A005A0A9E /* GoogleMobileAds.framework */,
+			);
+			name = GoogleMobileAds;
+			path = CrossAppDemoiOS/GoogleMobileAds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,6 +424,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CrossAppDemoiOS/GoogleMobileAds",
+				);
 				INFOPLIST_FILE = CrossAppDemoiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.addictinggames.CrossAppUnityDemo.CrossAppDemoiOS;
@@ -422,6 +439,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CrossAppDemoiOS/GoogleMobileAds",
+				);
 				INFOPLIST_FILE = CrossAppDemoiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.addictinggames.CrossAppUnityDemo.CrossAppDemoiOS;
