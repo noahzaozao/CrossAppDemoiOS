@@ -16,6 +16,7 @@
 		4FCB59FD1C5C5476005A0A9E /* CrossAppDemoiOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCB59FC1C5C5476005A0A9E /* CrossAppDemoiOSTests.m */; };
 		4FCB5A081C5C5476005A0A9E /* CrossAppDemoiOSUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCB5A071C5C5476005A0A9E /* CrossAppDemoiOSUITests.m */; };
 		4FCB5A261C5C561A005A0A9E /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FCB5A201C5C561A005A0A9E /* GoogleMobileAds.framework */; settings = {ASSET_TAGS = (); }; };
+		4FCB5A281C5C6276005A0A9E /* CrossApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCB5A271C5C6276005A0A9E /* CrossApp.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		4FCB5A071C5C5476005A0A9E /* CrossAppDemoiOSUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CrossAppDemoiOSUITests.m; sourceTree = "<group>"; };
 		4FCB5A091C5C5476005A0A9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FCB5A201C5C561A005A0A9E /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		4FCB5A271C5C6276005A0A9E /* CrossApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrossApp.m; sourceTree = "<group>"; };
+		4FCB5A291C5C62A8005A0A9E /* CrossApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrossApp.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,8 @@
 			children = (
 				4FCB59E51C5C5475005A0A9E /* AppDelegate.h */,
 				4FCB59E61C5C5475005A0A9E /* AppDelegate.m */,
+				4FCB5A291C5C62A8005A0A9E /* CrossApp.h */,
+				4FCB5A271C5C6276005A0A9E /* CrossApp.m */,
 				4FCB59E81C5C5475005A0A9E /* ViewController.h */,
 				4FCB59E91C5C5475005A0A9E /* ViewController.m */,
 				4FCB59EB1C5C5475005A0A9E /* Main.storyboard */,
@@ -283,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FCB5A281C5C6276005A0A9E /* CrossApp.m in Sources */,
 				4FCB59EA1C5C5475005A0A9E /* ViewController.m in Sources */,
 				4FCB59E71C5C5475005A0A9E /* AppDelegate.m in Sources */,
 				4FCB59E41C5C5475005A0A9E /* main.m in Sources */,

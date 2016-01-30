@@ -8,11 +8,9 @@
 
 #import "ViewController.h"
 
-#import "GoogleMobileAds/GoogleMobileAds.h"
-#import <UIKit/UIKit.h>
-#import <StoreKit/StoreKit.h>
+#import "CrossApp.h"
 
-@interface ViewController () <GADInterstitialDelegate, GADAppEventDelegate, SKStoreProductViewControllerDelegate>
+@interface ViewController ()
 @end
 
 @implementation ViewController
@@ -21,126 +19,16 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view, typically from a nib.
-    
-    [self requestAd];
-}
-
-- (void)requestAd {
-    _interstitial = [[DFPInterstitial alloc] initWithAdUnitID:@"[AdUnitID]"];
-    _interstitial.delegate = self;
-    [_interstitial setAppEventDelegate:self];
-    
-    DFPRequest *request = [DFPRequest request];
-    request.customTargeting = @{@"appid" : @"123456"};
-    [self loadRequest: request];
+    self.crossApp = [[CrossApp alloc] initWithViewController:self];
 }
 
 - (IBAction)onTouchMoreBtn:(id)sender {
-    [self show];
+    [[self crossApp] show];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (void)dealloc {
-    _interstitial.delegate = nil;
-}
-
-- (void)loadRequest:(GADRequest *)request {
-    [self.interstitial loadRequest:request];
-}
-
-- (BOOL)isReady {
-    return self.interstitial.isReady;
-}
-
-- (void)show {
-    if (self.interstitial.isReady) {
-        [self.interstitial presentFromRootViewController:self];
-    } else {
-        NSLog(@"GoogleMobileAdsPlugin: Interstitial is not ready to be shown.");
-    }
-}
-
-#pragma mark GADInterstitialDelegate implementation
-
-- (void)interstitialDidReceiveAd:(GADInterstitial *)ad {
-    self.statusLabel.text = @"isReady";
-}
-
-- (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error {
-    self.statusLabel.text = @"failed to receive ad";
-}
-
-- (void)interstitialWillPresentScreen:(GADInterstitial *)ad {
-}
-
-- (void)interstitialWillDismissScreen:(GADInterstitial *)ad {
-}
-
-- (void)interstitialDidDismissScreen:(GADInterstitial *)ad {
-    self.statusLabel.text = @"loading";
-    [self requestAd];
-}
-
-- (void)interstitialWillLeaveApplication:(GADInterstitial *)ad {
-}
-
-/// Below lines added for receive Admob app event
-
-- (UIViewController *)topMostViewController
-{
-    UIViewController *vc = self;
-    while (vc.presentedViewController)
-    {
-        vc = vc.presentedViewController;
-    }
-    return vc;
-}
-
-- (void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController {
-    [viewController dismissViewControllerAnimated:YES completion:nil];
-}
-
-/// Called when the interstitial receives an app event.
-- (void)interstitial:(GADInterstitial *)interstitial
-  didReceiveAppEvent:(NSString *)name
-            withInfo:(NSString *)info
-{
-    NSLog(@"Received appEvent: %@", name);
-    if([name isEqualToString:@"appstore"]) {
-        NSLog(@"URL opening: %@", info);
-        
-        UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-        indicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
-        [indicatorView setCenter:CGPointMake([self topMostViewController].view.frame.size.width /2 ,
-                                             [self topMostViewController].view.frame.size.height / 2)];
-        [[[self topMostViewController] view] addSubview:indicatorView];
-        [indicatorView startAnimating];
-        [[[self topMostViewController] view] setUserInteractionEnabled:false];
-        
-        SKStoreProductViewController *storeProductViewController = [[SKStoreProductViewController alloc] init];
-        
-        // Configure View Controller
-        [storeProductViewController setDelegate:self];
-        [storeProductViewController loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier : info} completionBlock:^(BOOL result, NSError *error) {
-            [indicatorView stopAnimating];
-            [indicatorView removeFromSuperview];
-            [[[self topMostViewController] view] setUserInteractionEnabled:true];
-            
-            if (error) {
-                NSLog(@"Error %@ with User Info %@.", error, [error userInfo]);
-                
-            } else {
-                // Present Store Product View Controller
-                [[self topMostViewController] presentViewController:storeProductViewController animated:YES completion:nil];
-                
-            }
-        }];
-    }
-}
-
 
 @end
